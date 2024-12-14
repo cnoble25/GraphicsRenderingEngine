@@ -1,0 +1,3 @@
+C:/Users/carso/CLionProjects/GraphicsRenderer/build/CMakeFiles/GraphicsRenderer.dir
+C:/Users/carso/CLionProjects/GraphicsRenderer/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/carso/CLionProjects/GraphicsRenderer/build/CMakeFiles/ZERO_CHECK.dir
