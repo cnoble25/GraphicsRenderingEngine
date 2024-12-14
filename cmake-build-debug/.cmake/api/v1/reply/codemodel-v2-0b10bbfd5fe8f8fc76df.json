@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/carso/CLionProjects/GraphicsRenderer/cmake-build-debug",
-		"source" : "C:/Users/carso/CLionProjects/GraphicsRenderer"
+		"build" : "C:/Users/carso/CLionProjects/GraphicsRenderer/GraphicsRenderingEngine/cmake-build-debug",
+		"source" : "C:/Users/carso/CLionProjects/GraphicsRenderer/GraphicsRenderingEngine"
 	},
 	"version" : 
 	{
