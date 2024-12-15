@@ -9,9 +9,9 @@
 
 class transforms {
 public:
-    vec3 position;
-    rotations rotation;
-    vec3 scale;
+    const vec3 position;
+    const rotations rotation;
+    const vec3 scale;
 
     transforms(): position(vec3(0,0,0)), rotation(rotations()), scale(vec3(1,1,1)) {
     }

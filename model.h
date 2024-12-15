@@ -23,7 +23,9 @@ public:
     }
     model(std::vector <vertex> const &vertexes, transforms const &t): vertices(vertexes), transform(t) {
         for (vertex i : vertices) {
-            vertex p = vertex( (transform.scale * transform.rotation.rotate(i.first)) + transform.position, (transform.scale * transform.rotation.rotate(i.second)) + transform.position,   (transform.scale * transform.rotation.rotate(i.third)) + transform.position, color(0,0,0));
+            vertex p = vertex( transform.scale * transform.rotation.rotate(i.first) + transform.position,
+                             transform.scale * transform.rotation.rotate(i.second) + transform.position,
+                               transform.scale * transform.rotation.rotate(i.third) + transform.position,  color(0,0,0));
             transformed_vertices.push_back(p);
         }
     }
@@ -77,12 +79,11 @@ inline model box() {
     vertex v10 = vertex(p6, p7, p8, color(0,0,0));
     vertex v11 = vertex(p3, p4, p6, color(0,0,0));
     vertex v12 = vertex(p3, p5, p6, color(0,0,0));
-    model m = model({v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12}, transforms(vec3(0,0,0), rotations(0, 0, 0), vec3(1,1,1)));
+    model m = model({v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12}, transforms(vec3(0,0,0), rotations(0, 3.14, 0), vec3(1,1,1)));
     return m;
 }
 
 inline model pyamid() {
-    vec3 transf = vec3(0,0,10);
     vec3 v1 = vec3(1,0,1);
     vec3 v2 = vec3(-1,0,1);
     vec3 v3 = vec3(-1,0,-1);
@@ -95,8 +96,8 @@ inline model pyamid() {
     vertex t4 = vertex(v1,v4,v5,color());
     vertex t5 = vertex(v2,v3,v5,color());
     vertex t6 = vertex(v3,v4,v5,color());
-    model m = model({t1,t2, t3, t4, t5, t6}, transforms(vec3(0,0,10), rotations(0, 0, 0), vec3(2,2,2)));
-    std::clog << m.transformed_vertices[5].third << std::endl;
+    model m = model({t1,t2,t4,t5,t6,t3}, transforms(vec3(0,-2,7), rotations(0, 3.14/4, 0), vec3(1,1,1)));
+    // std::clog << m.transformed_vertices[0].third << std::endl;
     return m;
 }
 
