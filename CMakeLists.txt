@@ -1,15 +1,31 @@
-cmake_minimum_required(VERSION 3.28)
-project(GraphicsRenderer)
+cmake_minimum_required(VERSION 3.18)
+project(GraphicsRenderer LANGUAGES CXX CUDA)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CUDA_STANDARD 17)
 
-add_executable(GraphicsRenderer main.cpp
-        VEC3.h
+# Enable CUDA separable compilation
+set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
+
+# Add executable with CUDA support
+add_executable(GraphicsRenderer 
+        main.cpp
+        ray_trace_cuda.cu
+        ray_trace_cuda_helper.cpp
+        vec3.h
         color.h
         ray.h
         vertex.h
-        ray.h
         model.h
         transform.h
         rotation.h
+        ray_trace_cuda.h
 )
+
+# Enable CUDA for this target
+set_property(TARGET GraphicsRenderer PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+
+# Set CUDA architecture (adjust based on your GPU)
+# CUDA 11.5 supports: 50, 60, 61, 70, 75, 80, 86
+# Leave empty to auto-detect, or specify your GPU's compute capability
+set_property(TARGET GraphicsRenderer PROPERTY CUDA_ARCHITECTURES "50;60;70;75;80;86")

@@ -2,7 +2,7 @@
 // Created by carso on 12/2/2024.
 //
 
-#ifndef model_H
+#ifndef MODEL_H
 #define MODEL_H
 
 #include <vector>
