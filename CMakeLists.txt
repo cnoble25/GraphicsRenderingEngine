@@ -7,19 +7,28 @@ set(CMAKE_CUDA_STANDARD 17)
 # Enable CUDA separable compilation
 set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
 
+# Include directories
+include_directories(${CMAKE_SOURCE_DIR}/src/cpp)
+include_directories(${CMAKE_SOURCE_DIR}/src/cuda)
+
 # Add executable with CUDA support
 add_executable(GraphicsRenderer 
-        main.cpp
-        ray_trace_cuda.cu
-        ray_trace_cuda_helper.cpp
-        vec3.h
-        color.h
-        ray.h
-        vertex.h
-        model.h
-        transform.h
-        rotation.h
-        ray_trace_cuda.h
+        src/cpp/main.cpp
+        src/cuda/ray_trace_cuda.cu
+        src/cuda/ray_trace_cuda_helper.cpp
+        src/cpp/vec3.h
+        src/cpp/color.h
+        src/cpp/ray.h
+        src/cpp/vertex.h
+        src/cpp/model.h
+        src/cpp/transform.h
+        src/cpp/rotation.h
+        src/cpp/cuda_memory.h
+        src/cpp/cuda_utils.h
+        src/cpp/camera_setup.h
+        src/cpp/constants.h
+        src/cpp/strong_types.h
+        src/cuda/ray_trace_cuda.h
 )
 
 # Enable CUDA for this target
@@ -32,20 +41,28 @@ set_property(TARGET GraphicsRenderer PROPERTY CUDA_ARCHITECTURES "50;60;70;75;80
 
 # Add shared library for .NET interop
 add_library(GraphicsRendererAPI SHARED
-    renderer_api.cpp
-    obj_loader.cpp
-    ray_trace_cuda.cu
-    ray_trace_cuda_helper.cpp
-    vec3.h
-    color.h
-    ray.h
-    vertex.h
-    model.h
-    transform.h
-    rotation.h
-    ray_trace_cuda.h
-    renderer_api.h
-    obj_loader.h
+    src/cpp/renderer_api.cpp
+    src/cpp/obj_loader.cpp
+    src/cpp/errors.cpp
+    src/cuda/ray_trace_cuda.cu
+    src/cuda/ray_trace_cuda_helper.cpp
+    src/cpp/vec3.h
+    src/cpp/color.h
+    src/cpp/ray.h
+    src/cpp/vertex.h
+    src/cpp/model.h
+    src/cpp/transform.h
+    src/cpp/rotation.h
+    src/cpp/light.h
+    src/cpp/errors.h
+    src/cpp/cuda_memory.h
+    src/cpp/cuda_utils.h
+    src/cpp/camera_setup.h
+    src/cpp/constants.h
+    src/cpp/strong_types.h
+    src/cuda/ray_trace_cuda.h
+    src/cpp/renderer_api.h
+    src/cpp/obj_loader.h
 )
 
 # Define export macro for Windows

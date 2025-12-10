@@ -69,60 +69,60 @@ include CMakeFiles/GraphicsRenderer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/GraphicsRenderer.dir/flags.make
 
-CMakeFiles/GraphicsRenderer.dir/main.cpp.o: CMakeFiles/GraphicsRenderer.dir/flags.make
-CMakeFiles/GraphicsRenderer.dir/main.cpp.o: ../main.cpp
-CMakeFiles/GraphicsRenderer.dir/main.cpp.o: CMakeFiles/GraphicsRenderer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GraphicsRenderer.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRenderer.dir/main.cpp.o -MF CMakeFiles/GraphicsRenderer.dir/main.cpp.o.d -o CMakeFiles/GraphicsRenderer.dir/main.cpp.o -c /root/projects/GraphicsRenderingEngine/main.cpp
+CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o: CMakeFiles/GraphicsRenderer.dir/flags.make
+CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o: ../src/cpp/main.cpp
+CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o: CMakeFiles/GraphicsRenderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o -MF CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o.d -o CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o -c /root/projects/GraphicsRenderingEngine/src/cpp/main.cpp
 
-CMakeFiles/GraphicsRenderer.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphicsRenderer.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/projects/GraphicsRenderingEngine/main.cpp > CMakeFiles/GraphicsRenderer.dir/main.cpp.i
+CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/projects/GraphicsRenderingEngine/src/cpp/main.cpp > CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.i
 
-CMakeFiles/GraphicsRenderer.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphicsRenderer.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/projects/GraphicsRenderingEngine/main.cpp -o CMakeFiles/GraphicsRenderer.dir/main.cpp.s
+CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/projects/GraphicsRenderingEngine/src/cpp/main.cpp -o CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.s
 
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o: CMakeFiles/GraphicsRenderer.dir/flags.make
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o: ../ray_trace_cuda.cu
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o: CMakeFiles/GraphicsRenderer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CUDA object CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o -MF CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o.d -x cu -dc /root/projects/GraphicsRenderingEngine/ray_trace_cuda.cu -o CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o: CMakeFiles/GraphicsRenderer.dir/flags.make
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o: ../src/cuda/ray_trace_cuda.cu
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o: CMakeFiles/GraphicsRenderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CUDA object CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o -MF CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o.d -x cu -dc /root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda.cu -o CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o
 
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CUDA source to CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.i"
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CUDA source to CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CUDA source to assembly CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.s"
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CUDA source to assembly CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o: CMakeFiles/GraphicsRenderer.dir/flags.make
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o: ../ray_trace_cuda_helper.cpp
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o: CMakeFiles/GraphicsRenderer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o -MF CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o.d -o CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o -c /root/projects/GraphicsRenderingEngine/ray_trace_cuda_helper.cpp
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o: CMakeFiles/GraphicsRenderer.dir/flags.make
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o: ../src/cuda/ray_trace_cuda_helper.cpp
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o: CMakeFiles/GraphicsRenderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o -MF CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o.d -o CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o -c /root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda_helper.cpp
 
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/projects/GraphicsRenderingEngine/ray_trace_cuda_helper.cpp > CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.i
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda_helper.cpp > CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.i
 
-CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/projects/GraphicsRenderingEngine/ray_trace_cuda_helper.cpp -o CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.s
+CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda_helper.cpp -o CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.s
 
 # Object files for target GraphicsRenderer
 GraphicsRenderer_OBJECTS = \
-"CMakeFiles/GraphicsRenderer.dir/main.cpp.o" \
-"CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o" \
-"CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o"
+"CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o" \
+"CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o" \
+"CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o"
 
 # External object files for target GraphicsRenderer
 GraphicsRenderer_EXTERNAL_OBJECTS =
 
-CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/main.cpp.o
-CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o
-CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o
+CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o
+CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o
+CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o
 CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/build.make
 CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o: CMakeFiles/GraphicsRenderer.dir/dlink.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CUDA device code CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o"
@@ -134,16 +134,16 @@ CMakeFiles/GraphicsRenderer.dir/build: CMakeFiles/GraphicsRenderer.dir/cmake_dev
 
 # Object files for target GraphicsRenderer
 GraphicsRenderer_OBJECTS = \
-"CMakeFiles/GraphicsRenderer.dir/main.cpp.o" \
-"CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o" \
-"CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o"
+"CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o" \
+"CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o" \
+"CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o"
 
 # External object files for target GraphicsRenderer
 GraphicsRenderer_EXTERNAL_OBJECTS =
 
-GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/main.cpp.o
-GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o
-GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o
+GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o
+GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o
+GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o
 GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/build.make
 GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o
 GraphicsRenderer: CMakeFiles/GraphicsRenderer.dir/link.txt

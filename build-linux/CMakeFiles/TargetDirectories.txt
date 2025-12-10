@@ -1,3 +1,0 @@
-/root/projects/GraphicsRenderingEngine/build-linux/CMakeFiles/GraphicsRenderer.dir
-/root/projects/GraphicsRenderingEngine/build-linux/CMakeFiles/edit_cache.dir
-/root/projects/GraphicsRenderingEngine/build-linux/CMakeFiles/rebuild_cache.dir

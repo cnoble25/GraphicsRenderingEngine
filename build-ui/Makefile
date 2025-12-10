@@ -142,131 +142,155 @@ GraphicsRendererAPI/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/build
 .PHONY : GraphicsRendererAPI/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/cpp/errors.o: src/cpp/errors.cpp.o
+.PHONY : src/cpp/errors.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/cpp/errors.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o
+.PHONY : src/cpp/errors.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/cpp/errors.i: src/cpp/errors.cpp.i
+.PHONY : src/cpp/errors.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/cpp/errors.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.i
+.PHONY : src/cpp/errors.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/cpp/errors.s: src/cpp/errors.cpp.s
+.PHONY : src/cpp/errors.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/cpp/errors.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.s
+.PHONY : src/cpp/errors.cpp.s
 
-obj_loader.o: obj_loader.cpp.o
-.PHONY : obj_loader.o
+src/cpp/main.o: src/cpp/main.cpp.o
+.PHONY : src/cpp/main.o
 
 # target to build an object file
-obj_loader.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/obj_loader.cpp.o
-.PHONY : obj_loader.cpp.o
+src/cpp/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o
+.PHONY : src/cpp/main.cpp.o
 
-obj_loader.i: obj_loader.cpp.i
-.PHONY : obj_loader.i
+src/cpp/main.i: src/cpp/main.cpp.i
+.PHONY : src/cpp/main.i
 
 # target to preprocess a source file
-obj_loader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/obj_loader.cpp.i
-.PHONY : obj_loader.cpp.i
+src/cpp/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.i
+.PHONY : src/cpp/main.cpp.i
 
-obj_loader.s: obj_loader.cpp.s
-.PHONY : obj_loader.s
+src/cpp/main.s: src/cpp/main.cpp.s
+.PHONY : src/cpp/main.s
 
 # target to generate assembly for a file
-obj_loader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/obj_loader.cpp.s
-.PHONY : obj_loader.cpp.s
+src/cpp/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.s
+.PHONY : src/cpp/main.cpp.s
 
-ray_trace_cuda.o: ray_trace_cuda.cu.o
-.PHONY : ray_trace_cuda.o
+src/cpp/obj_loader.o: src/cpp/obj_loader.cpp.o
+.PHONY : src/cpp/obj_loader.o
 
 # target to build an object file
-ray_trace_cuda.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda.cu.o
-.PHONY : ray_trace_cuda.cu.o
+src/cpp/obj_loader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o
+.PHONY : src/cpp/obj_loader.cpp.o
 
-ray_trace_cuda.i: ray_trace_cuda.cu.i
-.PHONY : ray_trace_cuda.i
+src/cpp/obj_loader.i: src/cpp/obj_loader.cpp.i
+.PHONY : src/cpp/obj_loader.i
 
 # target to preprocess a source file
-ray_trace_cuda.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda.cu.i
-.PHONY : ray_trace_cuda.cu.i
+src/cpp/obj_loader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.i
+.PHONY : src/cpp/obj_loader.cpp.i
 
-ray_trace_cuda.s: ray_trace_cuda.cu.s
-.PHONY : ray_trace_cuda.s
+src/cpp/obj_loader.s: src/cpp/obj_loader.cpp.s
+.PHONY : src/cpp/obj_loader.s
 
 # target to generate assembly for a file
-ray_trace_cuda.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda.cu.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda.cu.s
-.PHONY : ray_trace_cuda.cu.s
+src/cpp/obj_loader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.s
+.PHONY : src/cpp/obj_loader.cpp.s
 
-ray_trace_cuda_helper.o: ray_trace_cuda_helper.cpp.o
-.PHONY : ray_trace_cuda_helper.o
+src/cpp/renderer_api.o: src/cpp/renderer_api.cpp.o
+.PHONY : src/cpp/renderer_api.o
 
 # target to build an object file
-ray_trace_cuda_helper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda_helper.cpp.o
-.PHONY : ray_trace_cuda_helper.cpp.o
+src/cpp/renderer_api.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o
+.PHONY : src/cpp/renderer_api.cpp.o
 
-ray_trace_cuda_helper.i: ray_trace_cuda_helper.cpp.i
-.PHONY : ray_trace_cuda_helper.i
+src/cpp/renderer_api.i: src/cpp/renderer_api.cpp.i
+.PHONY : src/cpp/renderer_api.i
 
 # target to preprocess a source file
-ray_trace_cuda_helper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda_helper.cpp.i
-.PHONY : ray_trace_cuda_helper.cpp.i
+src/cpp/renderer_api.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.i
+.PHONY : src/cpp/renderer_api.cpp.i
 
-ray_trace_cuda_helper.s: ray_trace_cuda_helper.cpp.s
-.PHONY : ray_trace_cuda_helper.s
+src/cpp/renderer_api.s: src/cpp/renderer_api.cpp.s
+.PHONY : src/cpp/renderer_api.s
 
 # target to generate assembly for a file
-ray_trace_cuda_helper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/ray_trace_cuda_helper.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda_helper.cpp.s
-.PHONY : ray_trace_cuda_helper.cpp.s
+src/cpp/renderer_api.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.s
+.PHONY : src/cpp/renderer_api.cpp.s
 
-renderer_api.o: renderer_api.cpp.o
-.PHONY : renderer_api.o
+src/cuda/ray_trace_cuda.o: src/cuda/ray_trace_cuda.cu.o
+.PHONY : src/cuda/ray_trace_cuda.o
 
 # target to build an object file
-renderer_api.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o
-.PHONY : renderer_api.cpp.o
+src/cuda/ray_trace_cuda.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o
+.PHONY : src/cuda/ray_trace_cuda.cu.o
 
-renderer_api.i: renderer_api.cpp.i
-.PHONY : renderer_api.i
+src/cuda/ray_trace_cuda.i: src/cuda/ray_trace_cuda.cu.i
+.PHONY : src/cuda/ray_trace_cuda.i
 
 # target to preprocess a source file
-renderer_api.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.i
-.PHONY : renderer_api.cpp.i
+src/cuda/ray_trace_cuda.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.i
+.PHONY : src/cuda/ray_trace_cuda.cu.i
 
-renderer_api.s: renderer_api.cpp.s
-.PHONY : renderer_api.s
+src/cuda/ray_trace_cuda.s: src/cuda/ray_trace_cuda.cu.s
+.PHONY : src/cuda/ray_trace_cuda.s
 
 # target to generate assembly for a file
-renderer_api.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.s
-.PHONY : renderer_api.cpp.s
+src/cuda/ray_trace_cuda.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.s
+.PHONY : src/cuda/ray_trace_cuda.cu.s
+
+src/cuda/ray_trace_cuda_helper.o: src/cuda/ray_trace_cuda_helper.cpp.o
+.PHONY : src/cuda/ray_trace_cuda_helper.o
+
+# target to build an object file
+src/cuda/ray_trace_cuda_helper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o
+.PHONY : src/cuda/ray_trace_cuda_helper.cpp.o
+
+src/cuda/ray_trace_cuda_helper.i: src/cuda/ray_trace_cuda_helper.cpp.i
+.PHONY : src/cuda/ray_trace_cuda_helper.i
+
+# target to preprocess a source file
+src/cuda/ray_trace_cuda_helper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.i
+.PHONY : src/cuda/ray_trace_cuda_helper.cpp.i
+
+src/cuda/ray_trace_cuda_helper.s: src/cuda/ray_trace_cuda_helper.cpp.s
+.PHONY : src/cuda/ray_trace_cuda_helper.s
+
+# target to generate assembly for a file
+src/cuda/ray_trace_cuda_helper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.s
+.PHONY : src/cuda/ray_trace_cuda_helper.cpp.s
 
 # Help Target
 help:
@@ -278,21 +302,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... GraphicsRenderer"
 	@echo "... GraphicsRendererAPI"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... obj_loader.o"
-	@echo "... obj_loader.i"
-	@echo "... obj_loader.s"
-	@echo "... ray_trace_cuda.o"
-	@echo "... ray_trace_cuda.i"
-	@echo "... ray_trace_cuda.s"
-	@echo "... ray_trace_cuda_helper.o"
-	@echo "... ray_trace_cuda_helper.i"
-	@echo "... ray_trace_cuda_helper.s"
-	@echo "... renderer_api.o"
-	@echo "... renderer_api.i"
-	@echo "... renderer_api.s"
+	@echo "... src/cpp/errors.o"
+	@echo "... src/cpp/errors.i"
+	@echo "... src/cpp/errors.s"
+	@echo "... src/cpp/main.o"
+	@echo "... src/cpp/main.i"
+	@echo "... src/cpp/main.s"
+	@echo "... src/cpp/obj_loader.o"
+	@echo "... src/cpp/obj_loader.i"
+	@echo "... src/cpp/obj_loader.s"
+	@echo "... src/cpp/renderer_api.o"
+	@echo "... src/cpp/renderer_api.i"
+	@echo "... src/cpp/renderer_api.s"
+	@echo "... src/cuda/ray_trace_cuda.o"
+	@echo "... src/cuda/ray_trace_cuda.i"
+	@echo "... src/cuda/ray_trace_cuda.s"
+	@echo "... src/cuda/ray_trace_cuda_helper.o"
+	@echo "... src/cuda/ray_trace_cuda_helper.i"
+	@echo "... src/cuda/ray_trace_cuda_helper.s"
 .PHONY : help
 
 

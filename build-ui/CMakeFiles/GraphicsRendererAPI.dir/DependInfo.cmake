@@ -8,10 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/projects/GraphicsRenderingEngine/ray_trace_cuda.cu" "CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda.cu.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda.cu.o.d"
-  "/root/projects/GraphicsRenderingEngine/obj_loader.cpp" "CMakeFiles/GraphicsRendererAPI.dir/obj_loader.cpp.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/obj_loader.cpp.o.d"
-  "/root/projects/GraphicsRenderingEngine/ray_trace_cuda_helper.cpp" "CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda_helper.cpp.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda_helper.cpp.o.d"
-  "/root/projects/GraphicsRenderingEngine/renderer_api.cpp" "CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o.d"
+  "/root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda.cu" "CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o.d"
+  "/root/projects/GraphicsRenderingEngine/src/cpp/errors.cpp" "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o.d"
+  "/root/projects/GraphicsRenderingEngine/src/cpp/obj_loader.cpp" "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o.d"
+  "/root/projects/GraphicsRenderingEngine/src/cpp/renderer_api.cpp" "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o.d"
+  "/root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda_helper.cpp" "CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o" "gcc" "CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o.d"
   )
 
 # Targets to which this target links.

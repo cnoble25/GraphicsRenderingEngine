@@ -1,3 +1,0 @@
-C:/Users/carso/CLionProjects/GraphicsRenderer/cmake-build-debug/CMakeFiles/GraphicsRenderer.dir
-C:/Users/carso/CLionProjects/GraphicsRenderer/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/carso/CLionProjects/GraphicsRenderer/cmake-build-debug/CMakeFiles/rebuild_cache.dir

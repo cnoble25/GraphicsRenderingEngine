@@ -24,7 +24,7 @@ cd ..
 
 # Build .NET application
 echo "Building .NET UI application..."
-cd GraphicsRendererUI
+cd ui
 
 # Set DOTNET_ROOT to use the proper .NET installation
 # The system /usr/bin/dotnet points to an incomplete installation
@@ -44,7 +44,7 @@ fi
 echo "Build complete!"
 echo ""
 echo "To run the application:"
-echo "  cd GraphicsRendererUI"
+echo "  cd ui"
 echo "  dotnet run"
 echo ""
 echo "Make sure libGraphicsRendererAPI.so is in the same directory or set LD_LIBRARY_PATH"

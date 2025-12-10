@@ -1,3 +1,0 @@
-/root/projects/GraphicsRenderingEngine/build_cuda/CMakeFiles/GraphicsRenderer.dir
-/root/projects/GraphicsRenderingEngine/build_cuda/CMakeFiles/edit_cache.dir
-/root/projects/GraphicsRenderingEngine/build_cuda/CMakeFiles/rebuild_cache.dir

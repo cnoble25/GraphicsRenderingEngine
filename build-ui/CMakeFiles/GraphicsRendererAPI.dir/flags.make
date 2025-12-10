@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 CUDA_DEFINES = -DGraphicsRendererAPI_EXPORTS
 
-CUDA_INCLUDES = 
+CUDA_INCLUDES = -I/root/projects/GraphicsRenderingEngine/src/cpp -I/root/projects/GraphicsRenderingEngine/src/cuda
 
 CUDA_FLAGS =  --generate-code=arch=compute_50,code=[compute_50,sm_50] --generate-code=arch=compute_60,code=[compute_60,sm_60] --generate-code=arch=compute_70,code=[compute_70,sm_70] --generate-code=arch=compute_75,code=[compute_75,sm_75] --generate-code=arch=compute_80,code=[compute_80,sm_80] --generate-code=arch=compute_86,code=[compute_86,sm_86] -Xcompiler=-fPIC
 
 CXX_DEFINES = -DGraphicsRendererAPI_EXPORTS
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/root/projects/GraphicsRenderingEngine/src/cpp -I/root/projects/GraphicsRenderingEngine/src/cuda
 
 CXX_FLAGS = -fPIC
 

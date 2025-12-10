@@ -7,7 +7,7 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUILD_DIR="$SCRIPT_DIR/build-ui"
-UI_DIR="$SCRIPT_DIR/GraphicsRendererUI"
+UI_DIR="$SCRIPT_DIR/ui"
 BIN_DIR="$UI_DIR/bin/Release/net8.0"
 LIB_NAME="libGraphicsRendererAPI.so"
 
