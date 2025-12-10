@@ -58,6 +58,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
             <!-- Transform Properties -->
@@ -200,10 +201,24 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <!-- Resolution -->
+                    <!-- Rendering Mode -->
                     <Grid Grid.Row="0" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Rendering Mode:" VerticalAlignment="Center" Margin="5,0"/>
+                        <ComboBox Grid.Column="1" SelectedIndex="{Binding RenderModeIndex}" Margin="5,0">
+                            <ComboBoxItem Content="Ray Tracing"/>
+                            <ComboBoxItem Content="Rasterization"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <!-- Resolution -->
+                    <Grid Grid.Row="1" Margin="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
@@ -217,7 +232,7 @@
                     </Grid>
 
                     <!-- Luminosity -->
-                    <Grid Grid.Row="1" Margin="5">
+                    <Grid Grid.Row="2" Margin="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
@@ -227,7 +242,7 @@
                     </Grid>
 
                     <!-- Output Path -->
-                    <Grid Grid.Row="2" Margin="5">
+                    <Grid Grid.Row="3" Margin="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
@@ -239,13 +254,27 @@
                     </Grid>
 
                     <!-- Status -->
-                    <TextBlock Grid.Row="3" Text="{Binding StatusMessage}" Margin="5" FontStyle="Italic" Foreground="Gray"/>
+                    <TextBlock Grid.Row="4" Text="{Binding StatusMessage}" Margin="5" FontStyle="Italic" Foreground="Gray"/>
 
                     <!-- Render Button -->
-                    <Button Grid.Row="4" Content="Render Scene" Command="{Binding RenderCommand}" 
+                    <Button Grid.Row="5" Content="Render Scene" Command="{Binding RenderCommand}" 
                             Margin="5" Padding="20,10" FontSize="14" FontWeight="Bold" 
                             Background="#4CAF50" Foreground="White"/>
                     </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Image Viewer -->
+            <Border Grid.Row="2" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Rendered Image" FontWeight="Bold" Margin="5,5,5,0"/>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="5">
+                        <Image Source="{Binding RenderedImage}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ScrollViewer>
                 </Grid>
             </Border>
         </Grid>

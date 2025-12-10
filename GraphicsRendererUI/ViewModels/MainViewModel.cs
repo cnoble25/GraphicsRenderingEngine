@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GraphicsRendererUI.Models;
+using GraphicsRendererUI.Utils;
 using Avalonia.Controls;
+using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
 
 namespace GraphicsRendererUI.ViewModels
@@ -19,6 +21,8 @@ namespace GraphicsRendererUI.ViewModels
         private int _renderHeight = 450;
         private double _luminosity = 5.0;
         private string _outputPath = "output.ppm";
+        private Bitmap? _renderedImage;
+        private RenderMode_API _renderMode = RenderMode_API.RENDER_MODE_RAY_TRACING;
 
         public ObservableCollection<SceneObject> Objects { get; } = new ObservableCollection<SceneObject>();
 
@@ -62,6 +66,30 @@ namespace GraphicsRendererUI.ViewModels
         {
             get => _outputPath;
             set => SetProperty(ref _outputPath, value);
+        }
+
+        public Bitmap? RenderedImage
+        {
+            get => _renderedImage;
+            set => SetProperty(ref _renderedImage, value);
+        }
+
+        public RenderMode_API RenderMode
+        {
+            get => _renderMode;
+            set => SetProperty(ref _renderMode, value);
+        }
+
+        public int RenderModeIndex
+        {
+            get => (int)_renderMode;
+            set
+            {
+                if (value >= 0 && value <= 1)
+                {
+                    RenderMode = (RenderMode_API)value;
+                }
+            }
         }
 
         public ICommand AddPyramidCommand { get; }
@@ -222,13 +250,32 @@ namespace GraphicsRendererUI.ViewModels
             }
 
             StatusMessage = "Rendering...";
+            RenderedImage = null; // Clear previous image
             
             try
             {
-                int result = RendererAPI.render_scene(_sceneHandle, OutputPath, RenderWidth, RenderHeight, Luminosity);
+                int result = RendererAPI.render_scene(_sceneHandle, OutputPath, RenderWidth, RenderHeight, Luminosity, RenderMode);
                 if (result != 0)
                 {
                     StatusMessage = $"Rendered to {OutputPath}";
+                    
+                    // Load and display the rendered image
+                    try
+                    {
+                        if (File.Exists(OutputPath))
+                        {
+                            RenderedImage = PpmDecoder.DecodePpm(OutputPath);
+                            StatusMessage = $"Rendered to {OutputPath} - Image displayed";
+                        }
+                        else
+                        {
+                            StatusMessage = $"Rendered to {OutputPath} - File not found";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        StatusMessage = $"Rendered to {OutputPath} - Failed to load image: {ex.Message}";
+                    }
                 }
                 else
                 {

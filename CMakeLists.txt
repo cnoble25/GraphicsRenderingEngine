@@ -48,12 +48,27 @@ add_library(GraphicsRendererAPI SHARED
     obj_loader.h
 )
 
+# Define export macro for Windows
+if(WIN32)
+    target_compile_definitions(GraphicsRendererAPI PRIVATE GRAPHICS_RENDERER_API_EXPORTS)
+endif()
+
 # Enable CUDA for the API library
 set_property(TARGET GraphicsRendererAPI PROPERTY CUDA_SEPARABLE_COMPILATION ON)
 set_property(TARGET GraphicsRendererAPI PROPERTY CUDA_ARCHITECTURES "50;60;70;75;80;86")
 
 # Set output directory for the shared library
-set_target_properties(GraphicsRendererAPI PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
-)
+if(WIN32)
+    # Windows: DLL goes to RUNTIME_OUTPUT_DIRECTORY
+    set_target_properties(GraphicsRendererAPI PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Release"
+        RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/Debug"
+        RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/Release"
+    )
+else()
+    # Linux/macOS: Shared library goes to LIBRARY_OUTPUT_DIRECTORY
+    set_target_properties(GraphicsRendererAPI PROPERTIES
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
+    )
+endif()

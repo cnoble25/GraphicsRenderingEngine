@@ -1,6 +1,16 @@
 #ifndef RENDERER_API_H
 #define RENDERER_API_H
 
+#ifdef _WIN32
+    #ifdef GRAPHICS_RENDERER_API_EXPORTS
+        #define GRAPHICS_RENDERER_API __declspec(dllexport)
+    #else
+        #define GRAPHICS_RENDERER_API __declspec(dllimport)
+    #endif
+#else
+    #define GRAPHICS_RENDERER_API
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,6 +36,11 @@ typedef enum {
     OBJECT_TYPE_OBJ_FILE = 2
 } ObjectType_API;
 
+typedef enum {
+    RENDER_MODE_RAY_TRACING = 0,
+    RENDER_MODE_RASTERIZATION = 1
+} RenderMode_API;
+
 typedef struct {
     ObjectType_API type;
     Transform_API transform;
@@ -36,25 +51,25 @@ typedef struct {
 typedef void* SceneHandle;
 
 // Create a new scene
-SceneHandle create_scene();
+GRAPHICS_RENDERER_API SceneHandle create_scene();
 
 // Add an object to the scene
-int add_object_to_scene(SceneHandle scene, SceneObject_API* object);
+GRAPHICS_RENDERER_API int add_object_to_scene(SceneHandle scene, SceneObject_API* object);
 
 // Remove an object from the scene by index
-int remove_object_from_scene(SceneHandle scene, int index);
+GRAPHICS_RENDERER_API int remove_object_from_scene(SceneHandle scene, int index);
 
 // Update an object's transform
-int update_object_transform(SceneHandle scene, int index, Transform_API* transform);
+GRAPHICS_RENDERER_API int update_object_transform(SceneHandle scene, int index, Transform_API* transform);
 
 // Get number of objects in scene
-int get_scene_object_count(SceneHandle scene);
+GRAPHICS_RENDERER_API int get_scene_object_count(SceneHandle scene);
 
 // Render the scene to a PPM file
-int render_scene(SceneHandle scene, const char* output_path, int width, int height, double luminosity);
+GRAPHICS_RENDERER_API int render_scene(SceneHandle scene, const char* output_path, int width, int height, double luminosity, RenderMode_API render_mode);
 
 // Free the scene
-void free_scene(SceneHandle scene);
+GRAPHICS_RENDERER_API void free_scene(SceneHandle scene);
 
 #ifdef __cplusplus
 }

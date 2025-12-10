@@ -217,6 +217,31 @@ CMakeFiles/GraphicsRendererAPI.dir/obj_loader.cpp.o: ../obj_loader.cpp \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
   ../color.h \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/bits/std_function.h \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h \
+  /usr/include/c++/11/pstl/execution_defs.h \
   ../transform.h \
   ../rotation.h \
   /usr/include/c++/11/fstream \
@@ -623,6 +648,31 @@ CMakeFiles/GraphicsRendererAPI.dir/ray_trace_cuda_helper.cpp.o: ../ray_trace_cud
   ../vertex.h \
   ../ray.h \
   ../color.h \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/bits/std_function.h \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h \
+  /usr/include/c++/11/pstl/execution_defs.h \
   ../transform.h \
   ../rotation.h
 
@@ -846,6 +896,32 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
   ../rotation.h \
   ../obj_loader.h \
   ../ray_trace_cuda.h \
+  ../rasterization.h \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/bits/std_function.h \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h \
+  /usr/include/c++/11/pstl/execution_defs.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
@@ -919,8 +995,6 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/sm_32_atomic_functions.h:
 
-/usr/include/sm_20_atomic_functions.hpp:
-
 /usr/include/sm_32_atomic_functions.hpp:
 
 /usr/include/sm_20_atomic_functions.h:
@@ -939,6 +1013,46 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/c++/11/math.h:
 
+/usr/include/crt/math_functions.h:
+
+/usr/include/assert.h:
+
+/usr/include/c++/11/stdlib.h:
+
+/usr/include/strings.h:
+
+/usr/include/crt/common_functions.h:
+
+/usr/include/sm_60_atomic_functions.hpp:
+
+/usr/include/vector_functions.hpp:
+
+/usr/include/driver_functions.h:
+
+/usr/include/cuda_device_runtime_api.h:
+
+/usr/include/cuda_runtime_api.h:
+
+/usr/include/channel_descriptor.h:
+
+/usr/include/library_types.h:
+
+/usr/include/texture_types.h:
+
+/usr/include/surface_types.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
+
+/usr/include/vector_types.h:
+
 /usr/include/wchar.h:
 
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
@@ -954,6 +1068,8 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 /usr/include/c++/11/bits/stringfwd.h:
 
 /usr/include/c++/11/backward/binders.h:
+
+/usr/include/c++/11/algorithm:
 
 /usr/include/c++/11/tr1/poly_hermite.tcc:
 
@@ -977,17 +1093,11 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/c++/11/cstdlib:
 
-/usr/include/assert.h:
-
-/usr/include/c++/11/tr1/beta_function.tcc:
-
 /usr/include/c++/11/bits/specfun.h:
 
 /usr/include/alloca.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/strings.h:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
@@ -1005,8 +1115,6 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
-/usr/include/x86_64-linux-gnu/sys/types.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
@@ -1016,8 +1124,6 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 /usr/include/crt/device_double_functions.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
-
-/usr/include/texture_types.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
@@ -1049,21 +1155,19 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
-/usr/include/cuda_runtime_api.h:
-
 /usr/include/c++/11/tr1/bessel_function.tcc:
 
-/usr/include/library_types.h:
+../ray_trace_cuda_helper.cpp:
+
+/usr/include/string.h:
+
+/usr/include/c++/11/bits/streambuf.tcc:
 
 /usr/include/c++/11/bits/functexcept.h:
 
 /usr/include/c++/11/streambuf:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
-
-/usr/include/c++/11/iostream:
-
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/c++/11/bits/locale_classes.tcc:
 
@@ -1083,19 +1187,17 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
-/usr/include/channel_descriptor.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
 /usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
-/usr/include/crt/math_functions.h:
-
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/11/tuple:
 
 ../ray_trace_cuda.h:
 
@@ -1106,6 +1208,10 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/c++/11/bits/functional_hash.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/c++/11/ext/aligned_buffer.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
@@ -1127,6 +1233,12 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
+
+/usr/include/features-time64.h:
+
+/usr/include/c++/11/debug/debug.h:
+
 /usr/include/c++/11/ostream:
 
 ../transform.h:
@@ -1135,13 +1247,13 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
-/usr/include/c++/11/bits/std_abs.h:
-
 /usr/include/c++/11/ext/numeric_traits.h:
 
 /usr/include/crt/host_defines.h:
 
 /usr/include/features.h:
+
+../rasterization.h:
 
 /usr/include/c++/11/bits/vector.tcc:
 
@@ -1173,8 +1285,6 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
-/usr/include/surface_types.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 /usr/include/c++/11/bits/allocator.h:
@@ -1197,13 +1307,11 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/c++/11/system_error:
 
-/usr/include/sm_60_atomic_functions.hpp:
-
-/usr/include/vector_functions.hpp:
-
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
 
 /usr/include/c++/11/iosfwd:
 
@@ -1226,8 +1334,6 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 /usr/include/c++/11/bits/string_view.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
 /usr/include/c++/11/bits/locale_facets.h:
 
@@ -1259,15 +1365,23 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
+/usr/include/c++/11/iostream:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/c++/11/bits/node_handle.h:
+
 /usr/include/c++/11/cstring:
 
 /usr/include/math.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+/usr/include/c++/11/bits/std_function.h:
 
-/usr/include/cuda_device_runtime_api.h:
+/usr/include/c++/11/bits/stl_tempbuf.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/c++/11/exception:
 
@@ -1289,15 +1403,9 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/c++/11/cstdint:
 
-/usr/include/endian.h:
+/usr/include/vector_functions.h:
 
-/usr/include/c++/11/bits/ptr_traits.h:
-
-/usr/include/stdint.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
 
 /usr/include/c++/11/clocale:
 
@@ -1306,6 +1414,8 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
 /usr/include/c++/11/cctype:
+
+/usr/include/c++/11/unordered_map:
 
 /usr/include/ctype.h:
 
@@ -1321,11 +1431,15 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
+/usr/include/c++/11/bits/unordered_map.h:
+
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/c++/11/bits/invoke.h:
 
 /usr/include/time.h:
 
@@ -1345,9 +1459,15 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
+/usr/include/c++/11/functional:
+
 /usr/include/linux/errno.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+
+/usr/include/c++/11/string:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
@@ -1391,9 +1511,15 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/c++/11/ios:
 
+/usr/include/c++/11/utility:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
+/usr/include/c++/11/pstl/glue_algorithm_defs.h:
+
 /usr/include/c++/11/stdexcept:
+
+/usr/include/c++/11/bits/uniform_int_dist.h:
 
 /usr/include/c++/11/bits/basic_ios.h:
 
@@ -1405,23 +1531,57 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 
 /usr/include/c++/11/bits/locale_facets.tcc:
 
-/usr/include/c++/11/bits/codecvt.h:
-
-/usr/include/c++/11/bits/basic_ios.tcc:
-
 /usr/include/c++/11/istream:
 
 /usr/include/c++/11/bits/istream.tcc:
 
-/usr/include/limits.h:
+/usr/include/linux/limits.h:
 
 /usr/include/c++/11/bits/basic_string.h:
-
-/usr/include/linux/limits.h:
 
 ../color.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/limits.h:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
+/usr/include/sm_20_atomic_functions.hpp:
+
+/usr/include/c++/11/pstl/execution_defs.h:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
+
+/usr/include/c++/11/bits/std_abs.h:
+
+/usr/include/c++/11/bits/stl_heap.h:
+
+/usr/include/c++/11/tr1/beta_function.tcc:
+
+/usr/include/c++/11/array:
+
+/usr/include/c++/11/bits/uses_allocator.h:
+
+/usr/include/c++/11/bits/refwrap.h:
+
+/usr/include/c++/11/bits/hashtable.h:
+
+/usr/include/c++/11/bits/hashtable_policy.h:
+
+/usr/include/c++/11/bits/codecvt.h:
+
+/usr/include/c++/11/bits/basic_ios.tcc:
+
+/usr/include/c++/11/bits/enable_special_members.h:
+
+/usr/include/endian.h:
+
+/usr/include/c++/11/bits/ptr_traits.h:
+
+/usr/include/stdint.h:
+
+/usr/include/c++/11/bits/erase_if.h:
 
 ../obj_loader.cpp:
 
@@ -1442,35 +1602,3 @@ CMakeFiles/GraphicsRendererAPI.dir/renderer_api.cpp.o: ../renderer_api.cpp \
 /usr/include/crt/host_config.h:
 
 /usr/include/builtin_types.h:
-
-/usr/include/vector_types.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/c++/11/debug/debug.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
-
-/usr/include/c++/11/string:
-
-/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
-
-/usr/include/driver_functions.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
-
-/usr/include/vector_functions.h:
-
-/usr/include/crt/common_functions.h:
-
-../ray_trace_cuda_helper.cpp:
-
-/usr/include/c++/11/bits/streambuf.tcc:
-
-/usr/include/string.h:
-
-/usr/include/c++/11/stdlib.h:

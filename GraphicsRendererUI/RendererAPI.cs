@@ -35,6 +35,12 @@ namespace GraphicsRendererUI
         OBJECT_TYPE_OBJ_FILE = 2
     }
 
+    public enum RenderMode_API
+    {
+        RENDER_MODE_RAY_TRACING = 0,
+        RENDER_MODE_RASTERIZATION = 1
+    }
+
     [StructLayout(LayoutKind.Sequential)]
     public struct SceneObject_API
     {
@@ -46,8 +52,28 @@ namespace GraphicsRendererUI
 
     public static class RendererAPI
     {
-        private const string DllName = "libGraphicsRendererAPI.so";  // Linux
-        // For Windows, use: "GraphicsRendererAPI.dll"
+        // Platform-specific DLL name
+        private static string GetDllName()
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return "GraphicsRendererAPI.dll";
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                return "libGraphicsRendererAPI.so";
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                return "libGraphicsRendererAPI.dylib";
+            }
+            else
+            {
+                throw new PlatformNotSupportedException("Unsupported platform");
+            }
+        }
+
+        private static readonly string DllName = GetDllName();
 
         [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr create_scene();
@@ -65,7 +91,7 @@ namespace GraphicsRendererUI
         public static extern int get_scene_object_count(IntPtr scene);
 
         [DllImport(DllName, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
-        public static extern int render_scene(IntPtr scene, string output_path, int width, int height, double luminosity);
+        public static extern int render_scene(IntPtr scene, string output_path, int width, int height, double luminosity, RenderMode_API render_mode);
 
         [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
         public static extern void free_scene(IntPtr scene);

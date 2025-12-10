@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GraphicsRendererUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+870c61a4e2c359bc992beebafa17926c6a418e1c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1381a2939c90127ce24c4971fe9a369f95bbf174")]
 [assembly: System.Reflection.AssemblyProductAttribute("GraphicsRendererUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GraphicsRendererUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
