@@ -14,10 +14,12 @@ include_directories(${CMAKE_SOURCE_DIR}/src/cuda)
 # Add executable with CUDA support
 add_executable(GraphicsRenderer 
         src/cpp/main.cpp
+        src/cpp/jpg_writer.cpp
         src/cuda/ray_trace_cuda.cu
         src/cuda/ray_trace_cuda_helper.cpp
         src/cpp/vec3.h
         src/cpp/color.h
+        src/cpp/stb_image_write.h
         src/cpp/ray.h
         src/cpp/vertex.h
         src/cpp/model.h
@@ -42,12 +44,14 @@ set_property(TARGET GraphicsRenderer PROPERTY CUDA_ARCHITECTURES "50;60;70;75;80
 # Add shared library for .NET interop
 add_library(GraphicsRendererAPI SHARED
     src/cpp/renderer_api.cpp
+    src/cpp/jpg_writer.cpp
     src/cpp/obj_loader.cpp
     src/cpp/errors.cpp
     src/cuda/ray_trace_cuda.cu
     src/cuda/ray_trace_cuda_helper.cpp
     src/cpp/vec3.h
     src/cpp/color.h
+    src/cpp/stb_image_write.h
     src/cpp/ray.h
     src/cpp/vertex.h
     src/cpp/model.h
@@ -89,3 +93,12 @@ else()
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
     )
 endif()
+
+# Add PPM to JPG converter utility (no CUDA needed)
+add_executable(ppm_to_jpg
+    src/cpp/ppm_to_jpg.cpp
+    src/cpp/jpg_writer.cpp
+    src/cpp/vec3.h
+    src/cpp/color.h
+    src/cpp/stb_image_write.h
+)

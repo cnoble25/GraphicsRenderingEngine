@@ -142,6 +142,19 @@ GraphicsRendererAPI/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/build
 .PHONY : GraphicsRendererAPI/fast
 
+#=============================================================================
+# Target rules for targets named ppm_to_jpg
+
+# Build rule for target.
+ppm_to_jpg: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ppm_to_jpg
+.PHONY : ppm_to_jpg
+
+# fast build rule for target.
+ppm_to_jpg/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppm_to_jpg.dir/build.make CMakeFiles/ppm_to_jpg.dir/build
+.PHONY : ppm_to_jpg/fast
+
 src/cpp/errors.o: src/cpp/errors.cpp.o
 .PHONY : src/cpp/errors.o
 
@@ -165,6 +178,36 @@ src/cpp/errors.s: src/cpp/errors.cpp.s
 src/cpp/errors.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.s
 .PHONY : src/cpp/errors.cpp.s
+
+src/cpp/jpg_writer.o: src/cpp/jpg_writer.cpp.o
+.PHONY : src/cpp/jpg_writer.o
+
+# target to build an object file
+src/cpp/jpg_writer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cpp/jpg_writer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppm_to_jpg.dir/build.make CMakeFiles/ppm_to_jpg.dir/src/cpp/jpg_writer.cpp.o
+.PHONY : src/cpp/jpg_writer.cpp.o
+
+src/cpp/jpg_writer.i: src/cpp/jpg_writer.cpp.i
+.PHONY : src/cpp/jpg_writer.i
+
+# target to preprocess a source file
+src/cpp/jpg_writer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cpp/jpg_writer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppm_to_jpg.dir/build.make CMakeFiles/ppm_to_jpg.dir/src/cpp/jpg_writer.cpp.i
+.PHONY : src/cpp/jpg_writer.cpp.i
+
+src/cpp/jpg_writer.s: src/cpp/jpg_writer.cpp.s
+.PHONY : src/cpp/jpg_writer.s
+
+# target to generate assembly for a file
+src/cpp/jpg_writer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRenderer.dir/build.make CMakeFiles/GraphicsRenderer.dir/src/cpp/jpg_writer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppm_to_jpg.dir/build.make CMakeFiles/ppm_to_jpg.dir/src/cpp/jpg_writer.cpp.s
+.PHONY : src/cpp/jpg_writer.cpp.s
 
 src/cpp/main.o: src/cpp/main.cpp.o
 .PHONY : src/cpp/main.o
@@ -213,6 +256,30 @@ src/cpp/obj_loader.s: src/cpp/obj_loader.cpp.s
 src/cpp/obj_loader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphicsRendererAPI.dir/build.make CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.s
 .PHONY : src/cpp/obj_loader.cpp.s
+
+src/cpp/ppm_to_jpg.o: src/cpp/ppm_to_jpg.cpp.o
+.PHONY : src/cpp/ppm_to_jpg.o
+
+# target to build an object file
+src/cpp/ppm_to_jpg.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppm_to_jpg.dir/build.make CMakeFiles/ppm_to_jpg.dir/src/cpp/ppm_to_jpg.cpp.o
+.PHONY : src/cpp/ppm_to_jpg.cpp.o
+
+src/cpp/ppm_to_jpg.i: src/cpp/ppm_to_jpg.cpp.i
+.PHONY : src/cpp/ppm_to_jpg.i
+
+# target to preprocess a source file
+src/cpp/ppm_to_jpg.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppm_to_jpg.dir/build.make CMakeFiles/ppm_to_jpg.dir/src/cpp/ppm_to_jpg.cpp.i
+.PHONY : src/cpp/ppm_to_jpg.cpp.i
+
+src/cpp/ppm_to_jpg.s: src/cpp/ppm_to_jpg.cpp.s
+.PHONY : src/cpp/ppm_to_jpg.s
+
+# target to generate assembly for a file
+src/cpp/ppm_to_jpg.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppm_to_jpg.dir/build.make CMakeFiles/ppm_to_jpg.dir/src/cpp/ppm_to_jpg.cpp.s
+.PHONY : src/cpp/ppm_to_jpg.cpp.s
 
 src/cpp/renderer_api.o: src/cpp/renderer_api.cpp.o
 .PHONY : src/cpp/renderer_api.o
@@ -302,15 +369,22 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... GraphicsRenderer"
 	@echo "... GraphicsRendererAPI"
+	@echo "... ppm_to_jpg"
 	@echo "... src/cpp/errors.o"
 	@echo "... src/cpp/errors.i"
 	@echo "... src/cpp/errors.s"
+	@echo "... src/cpp/jpg_writer.o"
+	@echo "... src/cpp/jpg_writer.i"
+	@echo "... src/cpp/jpg_writer.s"
 	@echo "... src/cpp/main.o"
 	@echo "... src/cpp/main.i"
 	@echo "... src/cpp/main.s"
 	@echo "... src/cpp/obj_loader.o"
 	@echo "... src/cpp/obj_loader.i"
 	@echo "... src/cpp/obj_loader.s"
+	@echo "... src/cpp/ppm_to_jpg.o"
+	@echo "... src/cpp/ppm_to_jpg.i"
+	@echo "... src/cpp/ppm_to_jpg.s"
 	@echo "... src/cpp/renderer_api.o"
 	@echo "... src/cpp/renderer_api.i"
 	@echo "... src/cpp/renderer_api.s"

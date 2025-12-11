@@ -44,4 +44,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/GraphicsRenderer.dir/DependInfo.cmake"
   "CMakeFiles/GraphicsRendererAPI.dir/DependInfo.cmake"
+  "CMakeFiles/ppm_to_jpg.dir/DependInfo.cmake"
   )

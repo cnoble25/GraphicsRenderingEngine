@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda.cu" "CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o" "gcc" "CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o.d"
+  "/root/projects/GraphicsRenderingEngine/src/cpp/jpg_writer.cpp" "CMakeFiles/GraphicsRenderer.dir/src/cpp/jpg_writer.cpp.o" "gcc" "CMakeFiles/GraphicsRenderer.dir/src/cpp/jpg_writer.cpp.o.d"
   "/root/projects/GraphicsRenderingEngine/src/cpp/main.cpp" "CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o" "gcc" "CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o.d"
   "/root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda_helper.cpp" "CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o" "gcc" "CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda_helper.cpp.o.d"
   )

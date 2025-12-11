@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o"
   "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o"
   "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o.d"
+  "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o"
+  "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o.d"
   "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o"
   "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o.d"
   "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o"

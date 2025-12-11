@@ -83,10 +83,24 @@ CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/projects/GraphicsRenderingEngine/src/cpp/renderer_api.cpp -o CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.s
 
+CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/flags.make
+CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o: ../src/cpp/jpg_writer.cpp
+CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o -MF CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o.d -o CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o -c /root/projects/GraphicsRenderingEngine/src/cpp/jpg_writer.cpp
+
+CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/projects/GraphicsRenderingEngine/src/cpp/jpg_writer.cpp > CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.i
+
+CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/projects/GraphicsRenderingEngine/src/cpp/jpg_writer.cpp -o CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.s
+
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/flags.make
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o: ../src/cpp/obj_loader.cpp
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o -MF CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o.d -o CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o -c /root/projects/GraphicsRenderingEngine/src/cpp/obj_loader.cpp
 
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.s: cmake_force
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/flags.make
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o: ../src/cpp/errors.cpp
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o -MF CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o.d -o CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o -c /root/projects/GraphicsRenderingEngine/src/cpp/errors.cpp
 
 CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.s: cmake_force
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o: CMakeFiles/GraphicsRendererAPI.dir/flags.make
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o: ../src/cuda/ray_trace_cuda.cu
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o: CMakeFiles/GraphicsRendererAPI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CUDA object CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CUDA object CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o"
 	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o -MF CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o.d -x cu -dc /root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda.cu -o CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o
 
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.s: cmake_force
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/flags.make
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o: ../src/cuda/ray_trace_cuda_helper.cpp
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o: CMakeFiles/GraphicsRendererAPI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o -MF CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o.d -o CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o -c /root/projects/GraphicsRenderingEngine/src/cuda/ray_trace_cuda_helper.cpp
 
 CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.i: cmake_force
@@ -142,6 +156,7 @@ CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.s: cmake_f
 # Object files for target GraphicsRendererAPI
 GraphicsRendererAPI_OBJECTS = \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o" \
+"CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o" \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o" \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o" \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o" \
@@ -151,13 +166,14 @@ GraphicsRendererAPI_OBJECTS = \
 GraphicsRendererAPI_EXTERNAL_OBJECTS =
 
 CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o
+CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o
 CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o
 CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o
 CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o
 CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda_helper.cpp.o
 CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/build.make
 CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o: CMakeFiles/GraphicsRendererAPI.dir/dlink.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CUDA device code CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CUDA device code CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GraphicsRendererAPI.dir/dlink.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -167,6 +183,7 @@ CMakeFiles/GraphicsRendererAPI.dir/build: CMakeFiles/GraphicsRendererAPI.dir/cma
 # Object files for target GraphicsRendererAPI
 GraphicsRendererAPI_OBJECTS = \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o" \
+"CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o" \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o" \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o" \
 "CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o" \
@@ -176,6 +193,7 @@ GraphicsRendererAPI_OBJECTS = \
 GraphicsRendererAPI_EXTERNAL_OBJECTS =
 
 libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/renderer_api.cpp.o
+libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/jpg_writer.cpp.o
 libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/obj_loader.cpp.o
 libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/src/cpp/errors.cpp.o
 libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace_cuda.cu.o
@@ -183,7 +201,7 @@ libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/src/cuda/ray_trace
 libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/build.make
 libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/cmake_device_link.o
 libGraphicsRendererAPI.so: CMakeFiles/GraphicsRendererAPI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libGraphicsRendererAPI.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/projects/GraphicsRenderingEngine/build-ui/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libGraphicsRendererAPI.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GraphicsRendererAPI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

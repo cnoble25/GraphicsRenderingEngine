@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/GraphicsRenderer.dir/cmake_device_link.o"
+  "CMakeFiles/GraphicsRenderer.dir/src/cpp/jpg_writer.cpp.o"
+  "CMakeFiles/GraphicsRenderer.dir/src/cpp/jpg_writer.cpp.o.d"
   "CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o"
   "CMakeFiles/GraphicsRenderer.dir/src/cpp/main.cpp.o.d"
   "CMakeFiles/GraphicsRenderer.dir/src/cuda/ray_trace_cuda.cu.o"
