@@ -1,0 +1,387 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:GraphicsRendererUI.ViewModels"
+        xmlns:models="clr-namespace:GraphicsRendererUI.Models"
+        xmlns:utils="clr-namespace:GraphicsRendererUI.Utils"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="700"
+        x:Class="GraphicsRendererUI.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="Graphics Renderer UI" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <utils:TypeNameConverter x:Key="TypeNameConverter"/>
+        <utils:DoubleConverter x:Key="DoubleConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel: Scene Items and Controls -->
+        <Grid Grid.Column="0" Background="#F5F5F5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Add Buttons -->
+            <StackPanel Grid.Row="0" Margin="10">
+                <TextBlock Text="Add to Scene" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <TextBlock Text="Objects:" FontWeight="SemiBold" FontSize="12" Margin="0,0,0,5"/>
+                <Button Content="Add Pyramid" Command="{Binding AddPyramidCommand}" Margin="0,5" Padding="10,5"/>
+                <Button Content="Add Box" Command="{Binding AddBoxCommand}" Margin="0,5" Padding="10,5"/>
+                <Button Content="Import OBJ File" Command="{Binding AddObjFileCommand}" Margin="0,5" Padding="10,5"/>
+                <Separator Margin="0,10"/>
+                <TextBlock Text="Lights:" FontWeight="SemiBold" FontSize="12" Margin="0,0,0,5"/>
+                <Button Content="Add Light" Command="{Binding AddLightCommand}" Margin="0,5" Padding="10,5" Background="#FFD700" Foreground="Black"/>
+            </StackPanel>
+
+            <!-- Unified Scene Items List -->
+            <Border Grid.Row="1" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Scene Items" FontWeight="Bold" Margin="5,5,5,0"/>
+                    <ListBox Grid.Row="1" ItemsSource="{Binding SceneItems}" SelectedItem="{Binding SelectedItem}" Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" FontWeight="Normal" Margin="0,0,8,0"/>
+                                    <TextBlock Text="{Binding ., Converter={StaticResource TypeNameConverter}}" 
+                                               FontStyle="Italic" Foreground="#666666" FontSize="10"
+                                               VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+
+            <!-- Remove Button -->
+            <StackPanel Grid.Row="2" Margin="10">
+                <Button Content="Remove Selected" Command="{Binding RemoveObjectCommand}" 
+                        Margin="0,0,0,5" Padding="10,5" IsEnabled="{Binding HasSelectedObject}"
+                        ToolTip.Tip="Remove selected object"/>
+                <Button Content="Remove Selected Light" Command="{Binding RemoveLightCommand}" 
+                        Margin="0,0,0,0" Padding="10,5" IsEnabled="{Binding HasSelectedLight}" 
+                        Background="#FF6B6B" Foreground="White"
+                        ToolTip.Tip="Remove selected light"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Right Panel: Properties and Render Settings -->
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Properties Panel (Object or Light) -->
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                <!-- Object Properties -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="0,0,0,10" IsVisible="{Binding HasSelectedObject}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Object Properties" FontWeight="Bold" Margin="5,5,5,0"/>
+                        <Grid Grid.Row="1" IsEnabled="{Binding HasSelectedObject}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Object Name -->
+                        <Grid Grid.Row="0" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name:" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding SelectedObject.Name}" Margin="5,0"/>
+                        </Grid>
+
+                        <!-- Position -->
+                        <Border Grid.Row="1" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Position" FontWeight="Bold" Margin="5,5,5,0"/>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="X:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="1" Text="{Binding SelectedObject.PositionX, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    <TextBlock Text="Y:" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="3" Text="{Binding SelectedObject.PositionY, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    <TextBlock Text="Z:" Grid.Column="4" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="5" Text="{Binding SelectedObject.PositionZ, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                        <!-- Scale -->
+                        <Border Grid.Row="2" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Scale" FontWeight="Bold" Margin="5,5,5,0"/>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="X:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="1" Text="{Binding SelectedObject.ScaleX, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    <TextBlock Text="Y:" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="3" Text="{Binding SelectedObject.ScaleY, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    <TextBlock Text="Z:" Grid.Column="4" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="5" Text="{Binding SelectedObject.ScaleZ, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                        <!-- Rotation -->
+                        <Border Grid.Row="3" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Rotation (Roll, Pitch, Yaw)" FontWeight="Bold" Margin="5,5,5,0"/>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Roll:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="1" Text="{Binding SelectedObject.RotationRoll, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    <TextBlock Text="Pitch:" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="3" Text="{Binding SelectedObject.RotationPitch, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    <TextBlock Text="Yaw:" Grid.Column="4" VerticalAlignment="Center" Margin="5,0"/>
+                                    <TextBox Grid.Column="5" Text="{Binding SelectedObject.RotationYaw, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                        <!-- OBJ File Path (if applicable) -->
+                        <Border Grid.Row="4" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="OBJ File" FontWeight="Bold" Margin="5,5,5,0"/>
+                                <TextBox Grid.Row="1" Text="{Binding SelectedObject.ObjFilePath}" IsReadOnly="True" Margin="5"/>
+                            </Grid>
+                        </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <!-- Light Properties -->
+                <Border BorderBrush="#FFD700" BorderThickness="2" CornerRadius="3" Margin="0,0,0,10" IsVisible="{Binding HasSelectedLight}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Light Properties" FontWeight="Bold" Margin="5,5,5,0" Foreground="#B8860B"/>
+                        <Grid Grid.Row="1" IsEnabled="{Binding HasSelectedLight}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Light Name -->
+                            <Grid Grid.Row="0" Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Name:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Text="{Binding SelectedLight.Name}" Margin="5,0"/>
+                            </Grid>
+
+                            <!-- Light Position -->
+                            <Border Grid.Row="1" BorderBrush="#FFD700" BorderThickness="1" CornerRadius="3" Margin="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Position" FontWeight="Bold" Margin="5,5,5,0"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="X:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
+                                        <TextBox Grid.Column="1" Text="{Binding SelectedLight.PositionX, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                        <TextBlock Text="Y:" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
+                                        <TextBox Grid.Column="3" Text="{Binding SelectedLight.PositionY, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                        <TextBlock Text="Z:" Grid.Column="4" VerticalAlignment="Center" Margin="5,0"/>
+                                        <TextBox Grid.Column="5" Text="{Binding SelectedLight.PositionZ, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <!-- Light Color -->
+                            <Border Grid.Row="2" BorderBrush="#FFD700" BorderThickness="1" CornerRadius="3" Margin="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Color (RGB 0.0-1.0)" FontWeight="Bold" Margin="5,5,5,0"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="R:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
+                                        <TextBox Grid.Column="1" Text="{Binding SelectedLight.ColorR, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                        <TextBlock Text="G:" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
+                                        <TextBox Grid.Column="3" Text="{Binding SelectedLight.ColorG, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                        <TextBlock Text="B:" Grid.Column="4" VerticalAlignment="Center" Margin="5,0"/>
+                                        <TextBox Grid.Column="5" Text="{Binding SelectedLight.ColorB, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <!-- Light Luminosity -->
+                            <Grid Grid.Row="3" Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Luminosity:" VerticalAlignment="Center" Margin="5,0"/>
+                                <TextBox Grid.Column="1" Text="{Binding SelectedLight.Luminosity, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Render Settings -->
+            <Border Grid.Row="1" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Render Settings" FontWeight="Bold" Margin="5,5,5,0"/>
+                    <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Resolution -->
+                    <Grid Grid.Row="1" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Width:" VerticalAlignment="Center" Margin="5,0"/>
+                        <TextBox Grid.Column="1" Text="{Binding RenderWidth}" Margin="5,0"/>
+                        <TextBlock Text="Height:" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
+                        <TextBox Grid.Column="3" Text="{Binding RenderHeight}" Margin="5,0"/>
+                    </Grid>
+
+                    <!-- Luminosity -->
+                    <Grid Grid.Row="2" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Luminosity:" VerticalAlignment="Center" Margin="5,0"/>
+                        <TextBox Grid.Column="1" Text="{Binding Luminosity, Mode=TwoWay, Converter={StaticResource DoubleConverter}}" Margin="5,0"/>
+                    </Grid>
+
+                    <!-- Output Path -->
+                    <Grid Grid.Row="3" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Output:" VerticalAlignment="Center" Margin="5,0"/>
+                        <TextBox Grid.Column="1" Text="{Binding OutputPath}" Margin="5,0"/>
+                        <Button Grid.Column="2" Content="Browse..." Command="{Binding BrowseOutputPathCommand}" Margin="5,0" Padding="10,5"/>
+                    </Grid>
+
+                    <!-- Status -->
+                    <TextBlock Grid.Row="4" Text="{Binding StatusMessage}" Margin="5" FontStyle="Italic" Foreground="Gray"/>
+
+                    <!-- Render Button -->
+                    <Button Grid.Row="5" Content="Render Scene" Command="{Binding RenderCommand}" 
+                            Margin="5" Padding="20,10" FontSize="14" FontWeight="Bold" 
+                            Background="#4CAF50" Foreground="White"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Image Viewer -->
+            <Border Grid.Row="2" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Rendered Image" FontWeight="Bold" Margin="5,5,5,0"/>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="5">
+                        <Image Source="{Binding RenderedImage}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
