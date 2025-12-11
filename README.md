@@ -49,7 +49,7 @@ GraphicsRenderingEngine/
 │   ├── Models/                        # Data models
 │   └── RendererAPI.cs                 # P/Invoke bindings to native library
 ├── build-ui/                          # CMake build output directory
-│   └── libGraphicsRendererAPI.so      # Shared library (after building)
+│   └── libGraphicsRendererAPI.so      # Shared library (Linux) or GraphicsRendererAPI.dll (Windows)
 ├── CMakeLists.txt                     # CMake build configuration
 ├── BUILD_AND_RUN.md                   # Build and run instructions
 ├── CUDA_README.md                     # CUDA implementation details
@@ -107,11 +107,11 @@ The CMakeLists.txt defines three build targets:
 
 ### Prerequisites
 
-- CUDA Toolkit (11.0 or later)
+- CUDA Toolkit (11.5 or later recommended)
 - CMake (3.18 or later)
 - C++ compiler with C++17 support
 - .NET 8.0 SDK (for UI application)
-- CUDA-capable GPU
+- CUDA-capable GPU (compute capability 5.0 or higher)
 
 ### Building
 
@@ -163,7 +163,13 @@ See [UI_README.md](UI_README.md) for more details.
 
 ## Current Status
 
-**Note**: The source files referenced in this documentation and the CMakeLists.txt are expected to be located in `src/cpp/` and `src/cuda/` directories. If these directories do not exist in your clone of the repository, the source files may need to be added or restored.
+**Note**: The source files referenced in this documentation and the CMakeLists.txt are expected to be located in `src/cpp/` and `src/cuda/` directories. 
+
+**If these directories do not exist in your clone:**
+- The source files may need to be added to the repository
+- Check with the repository maintainer for the location of the source code
+- The build artifacts in `build-ui/` indicate that source files existed at build time
+- You may need to restore the source files from a backup or alternative branch
 
 ## Contributing
 
