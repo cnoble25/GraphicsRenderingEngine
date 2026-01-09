@@ -4,6 +4,10 @@ project(GraphicsRenderer LANGUAGES CXX CUDA)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CUDA_STANDARD 17)
 
+# Find SDL2
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+
 # Enable CUDA separable compilation
 set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
 
@@ -32,6 +36,9 @@ add_executable(GraphicsRenderer
         src/cpp/strong_types.h
         src/cuda/ray_trace_cuda.h
 )
+
+# Link SDL2 to executable
+target_link_libraries(GraphicsRenderer ${SDL2_LIBRARIES})
 
 # Enable CUDA for this target
 set_property(TARGET GraphicsRenderer PROPERTY CUDA_SEPARABLE_COMPILATION ON)
@@ -68,6 +75,9 @@ add_library(GraphicsRendererAPI SHARED
     src/cpp/renderer_api.h
     src/cpp/obj_loader.h
 )
+
+# Link SDL2 to API library
+target_link_libraries(GraphicsRendererAPI ${SDL2_LIBRARIES})
 
 # Define export macro for Windows
 if(WIN32)

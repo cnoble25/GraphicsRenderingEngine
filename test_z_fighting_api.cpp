@@ -89,10 +89,10 @@ int main() {
     }
     std::cout << "Added light" << std::endl;
     
-    // Render in rasterization mode
-    std::cout << "Rendering in rasterization mode..." << std::endl;
+    // Render in ray tracing mode
+    std::cout << "Rendering in ray tracing mode..." << std::endl;
     const char* output_path = "renders/z_fighting_api_test.ppm";
-    int result = render_scene(scene, output_path, 800, 450, 5.0, RENDER_MODE_RASTERIZATION);
+    int result = render_scene(scene, output_path, 800, 450, 5.0, RENDER_MODE_RAY_TRACING, 3, 1);
     
     if (result) {
         std::cout << "Render successful! Output: " << output_path << std::endl;
@@ -102,7 +102,7 @@ int main() {
     }
     
     // Cleanup
-    destroy_scene(scene);
+    free_scene(scene);
     
     std::cout << "Test complete!" << std::endl;
     return 0;

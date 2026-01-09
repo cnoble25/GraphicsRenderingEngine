@@ -209,4 +209,25 @@ inline model pyramid() {
     return m;
 }
 
+inline model plane() {
+    // Create a simple plane (quad) as two triangles
+    // The plane lies in the XZ plane (y=0) and can be scaled/transformed
+    // Normal points in +y direction (facing up)
+    
+    // Triangle 1: CCW when viewed from +y (above)
+    vec3 p1_v1 = vec3(-1, 0, 1);   // Front-left
+    vec3 p1_v2 = vec3(-1, 0, -1);  // Back-left
+    vec3 p1_v3 = vec3(1, 0, 1);    // Front-right
+    vertex v1 = vertex(p1_v1, p1_v2, p1_v3, color(0, 0, 0));  // CCW from above
+    
+    // Triangle 2: CCW when viewed from +y (above)
+    vec3 p2_v1 = vec3(1, 0, 1);    // Front-right
+    vec3 p2_v2 = vec3(-1, 0, -1);  // Back-left
+    vec3 p2_v3 = vec3(1, 0, -1);   // Back-right
+    vertex v2 = vertex(p2_v1, p2_v2, p2_v3, color(0, 0, 0));  // CCW from above
+    
+    model m = model({v1, v2}, transforms(vec3(0, 0, 0), rotations(0, 0, 0), vec3(1, 1, 1)));
+    return m;
+}
+
 #endif //MODEL_H

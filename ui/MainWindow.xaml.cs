@@ -16,5 +16,13 @@ namespace GraphicsRendererUI
         {
             AvaloniaXamlLoader.Load(this);
         }
+
+        private void CompressionLevelTextBox_LostFocus(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            if (DataContext is MainViewModel viewModel)
+            {
+                viewModel.ValidateCompressionLevel();
+            }
+        }
     }
 }

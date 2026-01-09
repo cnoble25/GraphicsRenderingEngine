@@ -12,7 +12,7 @@ namespace GraphicsRendererUI.Models
         private double _colorB = 1.0;
         private double _luminosity = 5.0;
         private int _index = -1;
-        private string _name = "New Light";
+        private string _name = "";
 
         public string Name
         {

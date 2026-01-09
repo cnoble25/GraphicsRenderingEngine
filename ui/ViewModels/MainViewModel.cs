@@ -9,6 +9,9 @@ using GraphicsRendererUI.Utils;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
+using Avalonia.Threading;
+using Avalonia.Platform;
+using Avalonia;
 using Models = GraphicsRendererUI.Models;
 
 namespace GraphicsRendererUI.ViewModels
@@ -17,11 +20,15 @@ namespace GraphicsRendererUI.ViewModels
     {
         private IntPtr _sceneHandle = IntPtr.Zero;
         private string _statusMessage = "Ready";
-        private int _renderWidth = 800;
-        private int _renderHeight = 450;
+        private string _renderWidth = "800";
+        private string _renderHeight = "450";
         private double _luminosity = 5.0;
-        private string _outputPath = "renders/output.ppm";
+        private string _outputPath = "";
+        private int _maxBounces = 3; // Default to 3 bounces
+        private int _compressionLevel = 1; // Default to 1 (no compression)
         private Bitmap? _renderedImage;
+        private int _focusPointX = 0;
+        private int _focusPointY = 0;
         public ObservableCollection<SceneObject> Objects { get; } = new ObservableCollection<SceneObject>();
         public ObservableCollection<Light> Lights { get; } = new ObservableCollection<Light>();
         
@@ -68,16 +75,32 @@ namespace GraphicsRendererUI.ViewModels
             set => SetProperty(ref _statusMessage, value);
         }
 
-        public int RenderWidth
+        public string RenderWidth
         {
             get => _renderWidth;
-            set => SetProperty(ref _renderWidth, value);
+            set
+            {
+                SetProperty(ref _renderWidth, value);
+                // Clamp focus point when width changes
+                if (int.TryParse(value, out int width) && width > 0)
+                {
+                    FocusPointX = Math.Min(FocusPointX, width - 1);
+                }
+            }
         }
 
-        public int RenderHeight
+        public string RenderHeight
         {
             get => _renderHeight;
-            set => SetProperty(ref _renderHeight, value);
+            set
+            {
+                SetProperty(ref _renderHeight, value);
+                // Clamp focus point when height changes
+                if (int.TryParse(value, out int height) && height > 0)
+                {
+                    FocusPointY = Math.Min(FocusPointY, height - 1);
+                }
+            }
         }
 
         public double Luminosity
@@ -92,20 +115,73 @@ namespace GraphicsRendererUI.ViewModels
             set => SetProperty(ref _outputPath, value);
         }
 
+        public int MaxBounces
+        {
+            get => _maxBounces;
+            set => SetProperty(ref _maxBounces, Math.Max(0, Math.Min(10, value))); // Clamp to [0, 10]
+        }
+
+        public int CompressionLevel
+        {
+            get => _compressionLevel;
+            set => SetProperty(ref _compressionLevel, value); // Don't clamp immediately - allow typing
+        }
+
+        // Validate and clamp compression level (called when text box loses focus)
+        public void ValidateCompressionLevel()
+        {
+            int clamped = Math.Max(1, Math.Min(32, _compressionLevel));
+            if (clamped != _compressionLevel)
+            {
+                CompressionLevel = clamped;
+                StatusMessage = $"Compression level adjusted to {clamped} (valid range: 1-32)";
+            }
+        }
+
         public Bitmap? RenderedImage
         {
             get => _renderedImage;
             set => SetProperty(ref _renderedImage, value);
         }
 
+        public int FocusPointX
+        {
+            get => _focusPointX;
+            set
+            {
+                // Clamp to current render width (or 0 if not set)
+                int maxX = 0;
+                if (int.TryParse(RenderWidth, out int width) && width > 0)
+                    maxX = width - 1;
+                int clampedValue = Math.Max(0, Math.Min(maxX, value));
+                SetProperty(ref _focusPointX, clampedValue);
+            }
+        }
+
+        public int FocusPointY
+        {
+            get => _focusPointY;
+            set
+            {
+                // Clamp to current render height (or 0 if not set)
+                int maxY = 0;
+                if (int.TryParse(RenderHeight, out int height) && height > 0)
+                    maxY = height - 1;
+                int clampedValue = Math.Max(0, Math.Min(maxY, value));
+                SetProperty(ref _focusPointY, clampedValue);
+            }
+        }
+
         public ICommand AddPyramidCommand { get; }
         public ICommand AddBoxCommand { get; }
+        public ICommand AddPlaneCommand { get; }
         public ICommand AddObjFileCommand { get; }
         public ICommand RemoveObjectCommand { get; }
         public ICommand AddLightCommand { get; }
         public ICommand RemoveLightCommand { get; }
         public ICommand RenderCommand { get; }
         public ICommand BrowseOutputPathCommand { get; }
+        public ICommand ClearFocusPointCommand { get; }
 
         public MainViewModel()
         {
@@ -117,6 +193,7 @@ namespace GraphicsRendererUI.ViewModels
 
             AddPyramidCommand = new RelayCommand(AddPyramid);
             AddBoxCommand = new RelayCommand(AddBox);
+            AddPlaneCommand = new RelayCommand(AddPlane);
             AddObjFileCommand = new RelayCommand(AddObjFile);
             RemoveObjectCommand = new RelayCommand(RemoveSelectedObject, () => HasSelectedObject);
             AddLightCommand = new RelayCommand(AddLight);
@@ -136,13 +213,21 @@ namespace GraphicsRendererUI.ViewModels
             };
             RenderCommand = new RelayCommand(RenderScene);
             BrowseOutputPathCommand = new RelayCommand(BrowseOutputPath);
+            ClearFocusPointCommand = new RelayCommand(ClearFocusPoint);
+        }
+
+        private void ClearFocusPoint()
+        {
+            FocusPointX = 0;
+            FocusPointY = 0;
+            StatusMessage = "Focus point cleared";
         }
 
         private void AddPyramid()
         {
             var obj = new SceneObject
             {
-                Name = $"Pyramid {Objects.Count + 1}",
+                Name = $"Pyramid {GetNextObjectNumber("Pyramid")}",
                 ObjectType = ObjectType_API.OBJECT_TYPE_PYRAMID
             };
             AddObject(obj);
@@ -152,10 +237,54 @@ namespace GraphicsRendererUI.ViewModels
         {
             var obj = new SceneObject
             {
-                Name = $"Box {Objects.Count + 1}",
+                Name = $"Box {GetNextObjectNumber("Box")}",
                 ObjectType = ObjectType_API.OBJECT_TYPE_BOX
             };
             AddObject(obj);
+        }
+
+        private void AddPlane()
+        {
+            var obj = new SceneObject
+            {
+                Name = $"Plane {GetNextObjectNumber("Plane")}",
+                ObjectType = ObjectType_API.OBJECT_TYPE_PLANE
+            };
+            AddObject(obj);
+        }
+
+        private int GetNextObjectNumber(string prefix)
+        {
+            int maxNumber = 0;
+            foreach (var obj in Objects)
+            {
+                if (obj.Name.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+                {
+                    var parts = obj.Name.Split(' ');
+                    if (parts.Length > 1 && int.TryParse(parts[parts.Length - 1], out int number))
+                    {
+                        maxNumber = Math.Max(maxNumber, number);
+                    }
+                }
+            }
+            return maxNumber + 1;
+        }
+
+        private int GetNextLightNumber()
+        {
+            int maxNumber = 0;
+            foreach (var light in Lights)
+            {
+                if (light.Name.StartsWith("Light", StringComparison.OrdinalIgnoreCase))
+                {
+                    var parts = light.Name.Split(' ');
+                    if (parts.Length > 1 && int.TryParse(parts[parts.Length - 1], out int number))
+                    {
+                        maxNumber = Math.Max(maxNumber, number);
+                    }
+                }
+            }
+            return maxNumber + 1;
         }
 
         private async void AddObjFile()
@@ -249,6 +378,7 @@ namespace GraphicsRendererUI.ViewModels
         {
             var light = new Light
             {
+                Name = $"Light {GetNextLightNumber()}",
                 PositionX = 0.0,
                 PositionY = 5.0,
                 PositionZ = 5.0,
@@ -272,7 +402,7 @@ namespace GraphicsRendererUI.ViewModels
                 Lights.Add(light);
                 SceneItems.Add(light);
                 SelectedItem = light;
-                StatusMessage = $"Added light {Lights.Count} to scene";
+                StatusMessage = $"Added {light.Name} to scene";
             }
             else
             {
@@ -316,17 +446,42 @@ namespace GraphicsRendererUI.ViewModels
                 return;
             }
 
-            // Update all object transforms
+            // Validate compression level before rendering (in case user didn't tab off)
+            ValidateCompressionLevel();
+
+            // Update all object transforms and reflectivities
             for (int i = 0; i < Objects.Count; i++)
             {
                 var obj = Objects[i];
+                // Default scale to 1.0 if it's 0 (allows placeholder to show)
+                var scale = obj.Scale;
+                if (scale.x == 0 && scale.y == 0 && scale.z == 0)
+                {
+                    scale = new Vec3_API { x = 1.0, y = 1.0, z = 1.0 };
+                }
+                
+                // Convert rotation to radians if currently in degrees (API expects radians)
+                Rotation_API rotation = obj.Rotation;
+                if (obj.UseDegrees)
+                {
+                    rotation = new Rotation_API
+                    {
+                        roll = obj.Rotation.roll * Math.PI / 180.0,
+                        pitch = obj.Rotation.pitch * Math.PI / 180.0,
+                        yaw = obj.Rotation.yaw * Math.PI / 180.0
+                    };
+                }
+                
                 var transform = new Transform_API
                 {
                     position = obj.Position,
-                    scale = obj.Scale,
-                    rotation = obj.Rotation
+                    scale = scale,
+                    rotation = rotation
                 };
                 RendererAPI.update_object_transform(_sceneHandle, i, ref transform);
+                
+                // Update light absorption
+                RendererAPI.update_object_light_absorption(_sceneHandle, i, obj.LightAbsorption);
             }
 
             // Update all lights
@@ -345,49 +500,71 @@ namespace GraphicsRendererUI.ViewModels
             StatusMessage = "Rendering...";
             RenderedImage = null; // Clear previous image
             
+            // Parse render dimensions with defaults
+            if (!int.TryParse(RenderWidth, out int width) || width <= 0)
+                width = 800;
+            if (!int.TryParse(RenderHeight, out int height) || height <= 0)
+                height = 450;
+            
             try
             {
-                int result = RendererAPI.render_scene(_sceneHandle, OutputPath, RenderWidth, RenderHeight, Luminosity, RenderMode_API.RENDER_MODE_RAY_TRACING);
-                if (result != 0)
+                // Render directly to buffer for fast display (no file I/O, pixel buffer method)
+                int bufferSize = width * height * 4; // RGBA, 4 bytes per pixel
+                byte[] buffer = new byte[bufferSize];
+                
+                // Clamp focus point to resolution before rendering
+                int clampedFocusX = Math.Max(0, Math.Min(width - 1, FocusPointX));
+                int clampedFocusY = Math.Max(0, Math.Min(height - 1, FocusPointY));
+                
+                int result = RendererAPI.render_scene_to_buffer(_sceneHandle, buffer, width, height, MaxBounces, clampedFocusX, clampedFocusY, CompressionLevel);
+                
+                // SUCCESS = 1 (RendererError::SUCCESS)
+                if (result == 1)
                 {
-                    StatusMessage = $"Rendered to {OutputPath}";
-                    
-                    // Load and display the rendered image
-                    // Note: renderer_api.cpp automatically changes extension to .ppm
-                    try
+                    // Create Avalonia bitmap directly from buffer
+                    Dispatcher.UIThread.Post(() =>
                     {
-                        string ppmPath = OutputPath;
-                        if (!ppmPath.EndsWith(".ppm", StringComparison.OrdinalIgnoreCase))
+                        try
                         {
-                            int dotPos = ppmPath.LastIndexOf('.');
-                            if (dotPos >= 0)
+                            // Store old image reference before setting new one
+                            var oldImage = _renderedImage;
+                            
+                            // Create WriteableBitmap from buffer
+                            var writeableBitmap = new WriteableBitmap(
+                                new PixelSize(width, height),
+                                new Vector(96, 96),
+                                PixelFormat.Bgra8888,
+                                AlphaFormat.Opaque);
+                            
+                            using (var lockedBitmap = writeableBitmap.Lock())
                             {
-                                ppmPath = ppmPath.Substring(0, dotPos) + ".ppm";
+                                System.Runtime.InteropServices.Marshal.Copy(buffer, 0, lockedBitmap.Address, bufferSize);
                             }
-                            else
+                            
+                            // Set the new image
+                            RenderedImage = writeableBitmap;
+                            
+                            // Dispose old image after a short delay
+                            Dispatcher.UIThread.Post(() =>
                             {
-                                ppmPath += ".ppm";
-                            }
+                                if (oldImage != null)
+                                {
+                                    oldImage.Dispose();
+                                }
+                            }, DispatcherPriority.Background);
+                            
+                            StatusMessage = $"Rendered ({width}x{height}, comp={CompressionLevel}) - Check console for timing and saved image path";
                         }
-                        
-                        if (File.Exists(ppmPath))
+                        catch (Exception ex)
                         {
-                            RenderedImage = PpmDecoder.DecodePpm(ppmPath);
-                            StatusMessage = $"Rendered to {ppmPath} - Image displayed";
+                            StatusMessage = $"Failed to create image: {ex.Message}";
                         }
-                        else
-                        {
-                            StatusMessage = $"Rendered to {ppmPath} - File not found";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        StatusMessage = $"Rendered to {OutputPath} - Failed to load image: {ex.Message}";
-                    }
+                    }, DispatcherPriority.Render);
                 }
                 else
                 {
-                    StatusMessage = "Render failed!";
+                    // Pixel buffer rendering failed - show error
+                    StatusMessage = $"Pixel buffer render failed! Error code: {result}. Check console for details.";
                 }
             }
             catch (Exception ex)

@@ -17,7 +17,7 @@ private:
     size_t count_;
     
     // Helper to check CUDA errors with context
-    void check_error(cudaError_t error, const char* operation) {
+    void check_error(cudaError_t error, const char* operation) const {
         if (error != cudaSuccess) {
             throw std::runtime_error(
                 std::string("CudaBuffer ") + operation + " failed: " + 

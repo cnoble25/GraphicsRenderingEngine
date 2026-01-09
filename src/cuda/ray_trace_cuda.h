@@ -19,6 +19,18 @@ struct Vertex_cuda {
     Vec3_cuda p0, p1, p2;
 };
 
+struct Light_cuda {
+    Vec3_cuda position;
+    Color_cuda color;
+    double luminosity;
+};
+
+// Structure for custom pixel group assignment
+// Each CUDA core processes one PixelGroup
+struct PixelCoord_cuda {
+    int x, y;  // Pixel coordinates
+};
+
 // Function to convert vec3 to Vec3_cuda
 inline Vec3_cuda vec3_to_cuda(const vec3& v) {
     Vec3_cuda result;
@@ -44,6 +56,7 @@ inline color cuda_to_color(const Color_cuda& c) {
 
 // CUDA memory management and kernel launch
 extern "C" {
+    // Standard block-based compression kernel
     void launch_render_kernel(
         Color_cuda* d_image,
         int image_width,
@@ -56,7 +69,39 @@ extern "C" {
         const int* d_model_triangle_counts,
         const int* d_model_triangle_offsets,
         int num_models,
-        double luminosity
+        const Light_cuda* d_lights,
+        int num_lights,
+        const double* d_light_absorptions,
+        int max_bounces,
+        int compression_level
+    );
+    
+    // Custom compression algorithm kernel - assigns custom pixel groups to CUDA cores
+    // pixel_groups: Array of PixelGroup structures (one per CUDA core)
+    // group_pixel_coords: Flat array containing all pixel coordinates for all groups
+    // group_pixel_counts: Array of counts, one per group (how many pixels in each group)
+    // group_pixel_offsets: Array of offsets into group_pixel_coords for each group
+    // num_groups: Total number of pixel groups (number of CUDA cores to use)
+    void launch_render_kernel_custom(
+        Color_cuda* d_image,
+        int image_width,
+        int image_height,
+        Vec3_cuda camera_center,
+        Vec3_cuda pixel100_loc,
+        Vec3_cuda pixel_delta_u,
+        Vec3_cuda pixel_delta_v,
+        const Vertex_cuda* d_models,
+        const int* d_model_triangle_counts,
+        const int* d_model_triangle_offsets,
+        int num_models,
+        const Light_cuda* d_lights,
+        int num_lights,
+        const double* d_light_absorptions,
+        int max_bounces,
+        const PixelCoord_cuda* group_pixel_coords,
+        const int* group_pixel_counts,
+        const int* group_pixel_offsets,
+        int num_groups
     );
 }
 
